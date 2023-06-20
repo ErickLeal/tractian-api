@@ -12,6 +12,7 @@ services:
       - 3000:3000
     volumes:
     - ./:/tractian-api
+    command: sh -c "yarn install && tail -f /dev/null"
   mongodb:
     image: mongo:5.0.5
     restart: unless-stopped
