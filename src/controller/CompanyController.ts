@@ -67,7 +67,8 @@ class CompanyController {
 
             return res.json({
                 "message": "Company successfully deleted",
-                "deletedUnitsCount": deleted.deletedUnits.deletedCount,
+                "deletedUnitsCount": deleted.deletedUnits.deletedUnits.deletedCount,
+                "deletedAssetsCount": deleted.deletedUnits.deletedAssets.deletedCount,
                 "deletedUsersCount": deleted.deletedUsers.deletedCount
             });
 
@@ -89,7 +90,7 @@ class CompanyController {
 
     async readOne(req, res) {
         try {
-            const company = await CompanyService.ReadOne(req.query);
+            const company = await CompanyService.readOne(req.query);
 
             return res.json({
                 "company": company,

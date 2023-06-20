@@ -1,6 +1,6 @@
 import Company from "../model/Company";
 
-import UnitService from "../service/UnitService";
+import UnitService from "./UnitService";
 import UserService from "./UserService";
 
 import NotFoundException from "../exception/NotFoundException";
@@ -40,7 +40,7 @@ class CompanyService {
 
         const deletedCompany = await Company.deleteOne({ _id: companyId });
         const deletedUnits = await UnitService.deleteManyByCompany(data);
-        const deletedUsers = await UserService.deleteManyByCompany(data)
+        const deletedUsers = await UserService.deleteManyByCompany(data);
 
         return {
             "deletedCompany": deletedCompany,
@@ -49,7 +49,7 @@ class CompanyService {
         };
     }
 
-    async ReadOne(data) {
+    async readOne(data) {
 
         const { cnpj } = data;
 

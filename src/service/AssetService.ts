@@ -30,14 +30,76 @@ class AssetService {
         return asset;
     }
 
-    async ReadManyByCompany(data) {
+    async update(data) {
 
+        const { image, name, model, owner, description, status, healthLevel, unitId, assetId } = data;
+
+        const asset = await Asset.findById(assetId).select('-__v');
+        if (!asset)
+            throw new NotFoundException("Asset not found");
+
+        const unit = await Unit.findById(unitId).select('-__v').populate({ path: 'company', select: '-__v' });
+        if (!unit)
+            throw new NotFoundException("Unit not found");
+
+        asset.image = image;
+        asset.name = name;
+        asset.model = model;
+        asset.owner = owner;
+        asset.description = description;
+        asset.status = status;
+        asset.healthLevel = healthLevel;
+        asset.unit = unitId;
+
+        await asset.save();
+
+        asset.unit = unit;
+
+        return asset;
+    }
+
+    async readOne(data) {
+        const { assetId } = data;
+
+        const asset = await Asset.findById(assetId).select('-__v')
+            .populate({
+                path: 'unit',
+                select: '-__v',
+                populate: {
+                    path: 'company',
+                    select: '-__v',
+                },
+            });
+
+        if (!asset)
+            throw new NotFoundException("Asset not found");
+
+        return asset;
+    }
+
+    async readManyByUnit(data) {
+        const { unitId } = data;
+
+        const assets = await Asset.find({unit: unitId}).select('-__v')
+            .populate({
+                path: 'unit',
+                select: '-__v',
+                populate: {
+                    path: 'company',
+                    select: '-__v',
+                },
+            });
+
+        return assets;
+    }
+
+    async readManyByCompany(data) {
+        
         /* Nesta função optei por utilizar o aggregate, acho mais performático e de melhor entendimento 
             em funções que envolvem mais de 2 models ou com outros filtros mais complexos */
 
         const { companyId } = data;
-
-        var assets = Asset.aggregate([
+        var assets = await Asset.aggregate([
             {
                 $lookup: {
                     from: 'units',
@@ -71,8 +133,36 @@ class AssetService {
                 },
             }
         ]);
+        return assets;
+    }
+
+    async deleteOne(data) {
+
+        const { assetId } = data;
+
+        const asset = await Asset.deleteOne({ _id: assetId });
+
+        return asset;
+    }
+
+    async deleteManyByUnit(data) {
+
+        const { unitId } = data;
+
+        const assets = await Asset.deleteMany({unit: unitId});
 
         return assets;
+    }
+
+    async deleteManyByCompany(data) {
+       
+        const assets = await this.readManyByCompany(data);
+        const idsList = await assets.map(function(d) {
+            return d._id;
+        });
+        const assetsDeleted = await Asset.deleteMany({ _id: { $in: idsList } });
+
+        return assetsDeleted;
     }
 
 }

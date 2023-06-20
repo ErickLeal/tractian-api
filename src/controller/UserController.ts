@@ -67,7 +67,7 @@ class UserController {
 
     async readOne(req, res) {
         try {
-            const user = await UserService.ReadOne(req.query);
+            const user = await UserService.readOne(req.query);
 
             return res.json({
                 "user": user,
@@ -92,7 +92,7 @@ class UserController {
 
     async readManyByCompany(req, res) {
         try {
-            const users = await UserService.ReadManyByCompany(req.query);
+            const users = await UserService.readManyByCompany(req.query);
 
             return res.json({
                 "users": users,

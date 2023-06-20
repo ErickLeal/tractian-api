@@ -55,7 +55,7 @@ class UnitController {
 
     async readOne(req, res) {
         try {
-            const unit = await UnitService.ReadOne(req.query);
+            const unit = await UnitService.readOne(req.query);
 
             return res.json({
                 "unit": unit,
@@ -80,10 +80,12 @@ class UnitController {
 
     async deleteOne(req, res) {
         try {
-            await UnitService.deleteOne(req.body);
+            const deleted = await UnitService.deleteOne(req.body);
 
             return res.json({
-                "message": "Successfully deleted"
+                "message": "Unit successfully deleted",
+                "deletedUnitCount": deleted.deletedUnit.deletedCount,
+                "deletedAssetsCount": deleted.deletedAssets.deletedCount
             });
 
         } catch (err) {
@@ -94,13 +96,12 @@ class UnitController {
         }
     }
 
-
     async deleteManyByCompany(req, res) {
         try {
             const deletedUnits = await UnitService.deleteManyByCompany(req.body);
 
             return res.json({
-                "deletedCount": deletedUnits.deletedCount,
+                "deletedCount": deletedUnits,
                 "message": "Successfully deleted"
             });
 

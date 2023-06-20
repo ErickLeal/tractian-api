@@ -2,6 +2,7 @@ import Unit from "../model/Unit";
 import Company from "../model/Company";
 
 import NotFoundException from "../exception/NotFoundException";
+import AssetService from "./AssetService";
 
 class UnitService {
 
@@ -48,21 +49,29 @@ class UnitService {
 
         const { unitId } = data;
 
-        const unit = await Unit.deleteOne({ _id: unitId });
+        const deletedUnit = await Unit.deleteOne({ _id: unitId });
+        const deletedAssets = await AssetService.deleteManyByUnit(data);
 
-        return unit;
+        return {
+            "deletedUnit": deletedUnit,
+            "deletedAssets": deletedAssets
+        };
     }
 
     async deleteManyByCompany(data) {
 
         const { companyId } = data;
 
-        const unit = await Unit.deleteMany({company: companyId});
+        const deletedUnits = await Unit.deleteMany({company: companyId});
+        const deletedAssets = await AssetService.deleteManyByCompany(data);
 
-        return unit;
+        return {
+            "deletedUnits": deletedUnits,
+            "deletedAssets": deletedAssets
+        };
     }
 
-    async ReadOne(data) {
+    async readOne(data) {
 
         /*Pesquisa feita apenas por ID, seria interessante também
          um filtro combinando nome da unit + company id */

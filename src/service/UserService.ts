@@ -65,7 +65,7 @@ class UserService {
         return unit;
     }
 
-    async ReadOne(data) {
+    async readOne(data) {
         const { userId } = data;
 
         const user = await User.findById(userId).select('-__v').populate({ path: 'company', select: '-__v' });
@@ -75,7 +75,7 @@ class UserService {
         return user;
     }
 
-    async ReadManyByCompany(data) {
+    async readManyByCompany(data) {
         const { companyId } = data;
 
         const user = await User.find({company: companyId}).select('-__v').populate({ path: 'company', select: '-__v' });
