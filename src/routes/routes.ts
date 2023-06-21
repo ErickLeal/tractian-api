@@ -7,6 +7,10 @@ import AssetController from '../controller/AssetController';
 
 const routes = Router();
 
+routes.get('/', (req, res) => {
+    res.json({ message: 'Welcome' })
+})
+
 //Company routes
 routes.post("/company", CompanyController.create)
 routes.put("/company", CompanyController.update)
