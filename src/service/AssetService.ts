@@ -76,7 +76,7 @@ class AssetService {
 
     async readManyByUnit(data) {
         const { unitIds } = data;
-        console.log(unitIds);
+        
         const assets = await Asset.find({ unit: { $in: unitIds } }).select('-__v')
             .populate({
                 path: 'unit',
