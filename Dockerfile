@@ -19,7 +19,7 @@ RUN apk add --no-cache \
 
 # Create system user 
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN RUN mkdir -p /home/$user/ && \ 
+RUN mkdir -p /home/$user/ && \ 
     chown -R $user:$user /home/$user
 
 # Set working directory
