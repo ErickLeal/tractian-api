@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "b615d7a7-988a-4bd8-bcfb-3bd67604bf2f",
+		"name": "Assset",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10787241"
+	},
+	"item": [
+		{
+			"name": "Create Asset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"Image\",\r\n    \"name\": \"machine two\",\r\n    \"description\": \"obs\",\r\n    \"model\": \"model one\",\r\n    \"owner\": \"jack\",\r\n    \"status\": \"Stopped\",\r\n    \"healthLevel\":50,\r\n    \"unitId\": \"6492f7e4910c1892758df582\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{he}}/asset",
+					"host": [
+						"{{he}}"
+					],
+					"path": [
+						"asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read by company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/asset/bycompany?companyId=649209aedaa3f389bcdde0df",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset",
+						"bycompany"
+					],
+					"query": [
+						{
+							"key": "companyId",
+							"value": "649209aedaa3f389bcdde0df"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Asset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/asset?assetId=64910b83d54095612950a38a",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset"
+					],
+					"query": [
+						{
+							"key": "assetId",
+							"value": "64910b83d54095612950a38a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read by unit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/asset/byunit?unitIds=6492f7dc910c1892758df57c&unitIds=6492f7e4910c1892758df582",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset",
+						"byunit"
+					],
+					"query": [
+						{
+							"key": "unitIds",
+							"value": "6492f7dc910c1892758df57c"
+						},
+						{
+							"key": "unitIds",
+							"value": "6492f7e4910c1892758df582"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Asset",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"update\",\r\n    \"name\": \"update\",\r\n    \"description\":\"update\",\r\n    \"model\": \"update\",\r\n    \"owner\": \"update\",\r\n    \"status\": \"Stopped\",\r\n    \"healthLevel\":50,\r\n    \"unitId\": \"64910b74d54095612950a386\",\r\n    \"assetId\":\"64910ba2d54095612950a397\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/asset",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete asset",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetId\":\"64910ba2d54095612950a395\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/asset",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete many by unit",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"unitId\":\"64910b74d54095612950a386\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/asset/byunit",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset",
+						"byunit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete many by company",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyId\":\"64920db933515d6ad36a31f8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/asset/bycompany",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"asset",
+						"bycompany"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

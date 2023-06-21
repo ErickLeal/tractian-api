@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "b7c38d99-8e16-438b-a9cd-9643cbe327c6",
+		"name": "Unit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10787241"
+	},
+	"item": [
+		{
+			"name": "Create Unit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Unit 3\",\r\n    \"companyId\":\"6492f69e4442fbef67e329ab\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{he}}/unit",
+					"host": [
+						"{{he}}"
+					],
+					"path": [
+						"unit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Unit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"unitId\": \"648f4f016a4b09e52a3d34d9\",\r\n    \"name\": \"New Unit\",\r\n    \"companyId\":\"648f39be06f967b043dc977b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/unit",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"unit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUnit",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"unitId\":\"64910b74d54095612950a386\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/unit",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"unit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read One Unit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/unit?unitId=6490e70efff5872c8d881656",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"unit"
+					],
+					"query": [
+						{
+							"key": "unitId",
+							"value": "6490e70efff5872c8d881656"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by company",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyId\":\"64920bd00be112b7f266dd34\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/unit/bycompany",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"unit",
+						"bycompany"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

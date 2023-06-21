@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "8abe6067-8698-42ec-a60c-e0dcd3ee023c",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10787241"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"teste3\",\r\n    \"cpf\":\"cpf3\",\r\n    \"password\":\"122\",\r\n    \"companyId\":\"6490e6a506185d808b133054\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/user",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/user?userId=6490e9853979101a0975e3d6",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "6490e9853979101a0975e3d6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"6490e9853979101a0975e3d6\",\r\n    \"name\":\"Updatename2\",\r\n    \"companyId\":\"6490ec702ef7fa871f759994\",\r\n    \"password\":\"789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/user",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read by company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hl}}/user/bycompany?companyId=6490e6a506185d808b133054",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user",
+						"bycompany"
+					],
+					"query": [
+						{
+							"key": "companyId",
+							"value": "6490e6a506185d808b133054"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"6490e9853979101a0975e3d6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/user",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by company",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyId\":\"6490e6a506185d808b133054\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hl}}/user/bycompany",
+					"host": [
+						"{{hl}}"
+					],
+					"path": [
+						"user",
+						"bycompany"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

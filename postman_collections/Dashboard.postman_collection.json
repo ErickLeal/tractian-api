@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "a849f5b6-33bf-494c-a3e1-b8c28310f902",
+		"name": "Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10787241"
+	},
+	"item": [
+		{
+			"name": "Dashboard assets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"unitIds\":[\"6492f7dc910c1892758df57c\",\"6492f7e1910c1892758df57f\"],\r\n    \"group\":\"unit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{he}}/dashboard/assets",
+					"host": [
+						"{{he}}"
+					],
+					"path": [
+						"dashboard",
+						"assets"
+					]
+				},
+				"description": "Dashboard suporta os seguintes filtros  \n\nStartFragment\n\n``` json\n\"unitIds\":[\"6492f7dc910c1892758df57c\",\"6492f7e1910c1892758df57f\"]\n```\n\nEndFragment\n\n  \nou  \n\nStartFragment\n\n``` json\n\"companyId\": \"64923eb565f16f25afece262\"\n```\n\nEndFragment\n\n  \nO campo group é obrigatório e suporta os valores \"all\" ou \"unit\""
+			},
+			"response": []
+		}
+	]
+}
