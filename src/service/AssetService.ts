@@ -75,9 +75,9 @@ class AssetService {
     }
 
     async readManyByUnit(data) {
-        const { unitId } = data;
-
-        const assets = await Asset.find({unit: unitId}).select('-__v')
+        const { unitIds } = data;
+        console.log(unitIds);
+        const assets = await Asset.find({ unit: { $in: unitIds } }).select('-__v')
             .populate({
                 path: 'unit',
                 select: '-__v',
@@ -161,6 +161,19 @@ class AssetService {
 
         return assetsDeleted;
     }
+
+  /* async generateDashboard(data) {
+
+        if(data.unitsId){
+            var filter = { 'unit._id' : { $in: data.unitsId } };
+        }else if(data.companyId){
+            var filter = { 'unit._id' : { $in: data.unitsId } };
+        }
+
+        const assets = await Asset.deleteMany({unit: unitId});
+
+        return assets;
+    } */
 
 }
 

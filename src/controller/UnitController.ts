@@ -3,6 +3,7 @@ import UnitService from "../service/UnitService2";
 import NotFoundException from "../exception/NotFoundException";
 
 class UnitController {
+
     async create(req, res) {
         try {
             const unit = await UnitService.create(req.body);
@@ -113,7 +114,6 @@ class UnitController {
 
         }
     }
-
 
 
 }

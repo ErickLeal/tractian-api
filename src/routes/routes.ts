@@ -4,6 +4,7 @@ import UserController from '../controller/UserController';
 import CompanyController from '../controller/CompanyController';
 import UnitController from '../controller/UnitController';
 import AssetController from '../controller/AssetController';
+import DashboardController from '../controller/DashboardController';
 
 const routes = Router();
 
@@ -42,5 +43,7 @@ routes.delete("/asset", AssetController.deleteOne)
 routes.delete("/asset/byunit", AssetController.deleteManyByUnit)
 routes.delete("/asset/bycompany", AssetController.deleteManyByCompany)
 
+//Dashboard Routes
+routes.post("/dashboard/assets", DashboardController.dashboardAssets)
 
 export default routes
