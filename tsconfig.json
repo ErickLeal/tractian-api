@@ -5,29 +5,7 @@
       "module": "commonjs",
       "lib": ["es2019"],
       "sourceMap": true,
-      "outDir": "dist",
-      "strict": false,
-      "noImplicitAny": false,
-      "strictNullChecks": true,
-      "strictFunctionTypes": true,
-      "noImplicitThis": true,
-      "resolveJsonModule": true,
-      "alwaysStrict": true,
-      "removeComments": true,
-      "noImplicitReturns": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": "./",
-      "paths": {
-        "@src/*": ["./src/*"],
-        "@test/*": ["./test/*"]
-      },
-      "rootDirs": [
-        "./src",
-        "./test"
-      ],
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true
+      "outDir": "dist"
     },
     "include": [
       "./src/**/*.ts",
