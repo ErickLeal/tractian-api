@@ -18,7 +18,6 @@ class UnitService {
             name,
             company: companyId
         }); 
-        unit.company = company;
 
         return unit;
     }
@@ -39,8 +38,6 @@ class UnitService {
         unit.name = name;
         unit.company = companyId;
         await unit.save();
-
-        unit.company = company;
 
         return unit;
     }

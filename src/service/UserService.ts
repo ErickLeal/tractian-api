@@ -19,7 +19,6 @@ class UserService {
             password,
             company: companyId
         }); 
-        user.company = company;
 
         return user;
     }
@@ -41,8 +40,6 @@ class UserService {
         user.password = password;
 
         await user.save();
-
-        user.company = company;
 
         return user;
     }

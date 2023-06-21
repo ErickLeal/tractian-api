@@ -25,7 +25,6 @@ class AssetService {
             healthLevel,
             unit: unitId
         });
-        asset.unit = unit;
 
         return asset;
     }
@@ -52,8 +51,6 @@ class AssetService {
         asset.unit = unitId;
 
         await asset.save();
-
-        asset.unit = unit;
 
         return asset;
     }
