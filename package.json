@@ -5,9 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start": "ts-node-dev ./src/server.ts",
-    "production": "node ./build/index.js",
-    "postinstall": "tsc"
+    "build": "tsc",
+    "start": "node dist/src/index.js"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
