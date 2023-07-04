@@ -11,7 +11,7 @@ const atlasMongodbConection = 'mongodb+srv://erick:tractianerick@cluster0.ykzetj
     localmente utilizar a variavel abaixo */
 const localDockerMongodbConection = 'mongodb://test:test-password@mongodb:27017/?authMechanism=DEFAULT';
 
-mongoose.connect(atlasMongodbConection);
+mongoose.connect(localDockerMongodbConection);
 
 app.use(express.json()); 
 app.use(routes)
